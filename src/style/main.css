@@ -1,0 +1,167 @@
+:root{
+    --color-bg:#0a0a0f;
+    --color-primary:#00f5ff;
+    --color-secondary:#ff006e;
+    --color-accent:#7b2fff;
+    --color-text:#e0e0e0;
+    --color-text-dim:#888899;
+    --color-matrix:#00ff41;
+
+    --font-heading: 'Orbitron', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+
+    --section-height: 100vh
+
+    --z-canvas: 0;
+    --z-app: 10;
+    --z-ui: 20;
+    --z-overlay: 30;
+
+    *, *::before, *::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html{
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        font-size: 62.5%;
+    }
+
+    body{
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: var(--font-mono);
+        font-size: 1.6rem;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    canvas.webgl{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: var(--z-canvas);
+        outline: none;
+    }
+
+    #app{
+        position: relative;
+        z-index: var(--z-app);
+        background: transparent;
+    }
+
+    section{
+        position: relative;
+        width: 100%;
+        min-height: var(--section-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+    }
+
+    h1, h2, h3, h4{
+        font-family: var(--font-heading);
+        line-height: 1.2;
+        letter-spacing:0.05em;
+    }
+
+    h1{font-size: clamp(3.2rem, 6vw, 7.2rem);}
+    h2{font-size: clamp(2.4rem, 4vw, 4.8rem);}
+    h3{font-size: clamp(1.8rem, 3vw, 3.2rem);}
+
+    p{
+        font-family: var(--font-mono);
+        font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+        color: var(--color-text-dim);
+    }
+
+    a{
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover{
+        color: var(--color-secondary);
+    }
+
+    /* neon glow effect on h */
+    .neon-cyan{
+        color: var(--color-primary);
+        text-shadow:
+            0 0 10px var(--color-primary),
+            0 0 20px var(--color-primary),
+            0 0 40px var(--color-primary),
+    }
+
+    /* neon glow effect on a */
+    .neon-pink{
+        color: var(--color-secondary);
+        text-shadow:
+            0 0 10px var(--color-secondary),
+            0 0 20px var(--color-secondary),
+            0 0 40px var(--color-secondary);
+    }
+
+    /* neon purple glow */
+    .neon-purple{
+        color: var(--color-accent);
+        text-shadow:
+            0 0 10px var(--color-accent),
+            0 0 20px var(--color-accent),
+            0 0 40px var(--color-accent);
+    }
+
+    @keyframes flicker{
+        0%, 95%, 100%{ opacity: 1; }
+        96% { opacity: 0.4 }
+        97% { opacity: 1 }
+        98% { opacity: 0.2 }
+    }
+
+    .flicker{
+        animation: flicker 4s infinite;
+    }
+
+    .scanlines::after{
+        content:'';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            transparent 2px,
+            rgba(0, 0, 0, 0.05) 2px,
+            rgba(0, 0, 0, 0.05) 4px,
+        );
+        
+        pointer-events:none;
+        z-index: var(--z-overlay);
+    }
+
+    ::-webkit-scrollbar{
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track{
+        background: var(--color-bg);
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: var(--color-primary);
+        border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        background-color: var(--color-accent);
+    }
+
+    ::selection{
+        background: var(--color-accent);
+        color: #ffffff;
+    }
+}

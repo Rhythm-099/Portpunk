@@ -2,12 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portpunk</title>
+    <title>Portpunk | Nazat E Rose Rhythm</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/src/style/main.css">
   </head>
+
   <body>
-    <div id="app"></div>
+    <!--three.js canvas-->
+    <canvas class="webgl"></canvas>
+
+    <!--app-->
+    <div id="app">
+      <section id="hero"></section>
+      <section id="about"></section>
+      <section id="skills"></section>
+      <section id="project"></section>
+      <section id="education"></section>
+      <section id="contact"></section>
+      <section id="resume"></section>
+    </div>
+
+    <!--scripts-->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
